@@ -28,10 +28,9 @@
 %% LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
 %% ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 %% POSSIBILITY OF SUCH DAMAGE.
--module(gsniff).
+-module(lager_sniff).
 -behaviour(gen_fsm).
 -include_lib("pkt/include/pkt.hrl").
--compile({parse_transform, lager_transform}).
 
 % Interface
 -export([start/0, start/1, stop/0]).
@@ -45,8 +44,7 @@
 -define(is_print(C), C >= $ , C =< $~).
 
 -record(state, {
-        pid :: pid(), 
-		mod :: atom()
+        pid :: pid()
         }).
 
 

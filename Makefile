@@ -23,4 +23,4 @@ deps: $(REBAR)
 
 examples: eg
 eg:
-	@erlc -I deps -o ebin examples/*.erl
+	@erlc -I deps -pz deps/lager/ebin +'{parse_transform, lager_transform}' -o ebin examples/*.erl

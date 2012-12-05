@@ -32,6 +32,25 @@ epcap includes a small example program called sniff.
     % To stop sniffing
     sniff:stop().
 
+## STREAM PROCESSING EXAMPLES
+
+    ./sniffer.sh # uses sudo
+
+    lager:trace_console([{len, '>', 65}]).
+	This traces all packet lengths greater than 65
+
+    lager:trace_console([{source_address, "10.0.0.1"}]).
+	This traces packets equal to source address 10.0.0.1
+
+    lager:trace_console(lager_util:trace_all([{len, '>', 65}, {len, '<', 100}])).
+	This traces packet lengths greater than 65 AND less than 100
+
+    lager:trace_console(lager_util:trace_any([{len, '>', 65}, {len, '<', 100}])).
+	This traces packet lengths greater than 65 OR less than 100
+
+    lager:trace_console(lager_util:trace_any([{len, 66}, {len, '>', 100}])).
+	This traces any packet length equal to 66 OR greater than 100
+
 
 ## USAGE
 
